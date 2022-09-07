@@ -1,4 +1,4 @@
-package Easy.Java.MatrixCellsinDistanceOrder;
+package Easy.MatrixCellsinDistanceOrder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
