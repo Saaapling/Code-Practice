@@ -8,6 +8,8 @@ class Solution:
         Comments: The common_factor_grouping_method works (I think), but takes too long. Time complexity is O(n*n*sqrt(n))
             or worse for worst case [n * distinct_groups(n) * factors(sqrt(n))] on top of (potentially expensive) set operations.
         Optimal Method: Union-Find (https://www.delftstack.com/howto/python/union-find-in-python/)
+            References: https://leetcode.com/problems/largest-component-size-by-common-factor/discuss/1905677/PYTHON-SOL-oror-UNION-FIND-oror-EXPLAINED-oror
+                        https://leetcode.com/problems/largest-component-size-by-common-factor/discuss/2214545/Python.-Union-Find....
             Implementaton Time: 55 minutes
             Complexity: O(n*sqrt(n))
             Comments: This solution avoids having to loop through the list of factor groups
