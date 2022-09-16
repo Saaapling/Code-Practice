@@ -62,7 +62,7 @@ class Solution:
         Solution: Dynamic Programming with a Segment Tree
             Comments: This solution is the same as the 'failed' forward implementation, except it
                 improves upon the search through the dp_results array through the use of a segment-tree
-            Time-Complexity: O(nlog(n)
+            Time-Complexity: O(nlog(n))
             Documentation: https://leetcode.com/problems/longest-increasing-subsequence-ii/discuss/2560085/Python-Explanation-with-pictures-Segment-Tree
                            https://codeforces.com/blog/entry/18051
             Implementation Time: 
