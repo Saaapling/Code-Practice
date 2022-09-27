@@ -19,7 +19,7 @@ class Solution:
     
     """
     
-    def goodIndices(self, nums: List[int], k: int) -> List[int]:
+    def goodIndices_TLE(self, nums: list[int], k: int) -> list[int]:
         if len(nums) <= 2*k:
             return []
         
@@ -84,4 +84,43 @@ class Solution:
             result.append(i)
             
         return result
+    
+    def goodIndices(self, nums: list[int], k: int) -> list[int]:
+        if len(nums) <= 2*k:
+            return []
         
+        if k == 1:
+            return list(range(k,len(nums)-k))
+        
+        asc_arr = [1] * len(nums)
+        desc_arr = [1] * len(nums)
+        
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                asc_arr[i] = asc_arr[i-1] + 1
+                desc_arr[i] = desc_arr[i-1] + 1
+            elif nums[i] < nums[i-1]:
+                asc_arr[i] = 1
+                desc_arr[i] = desc_arr[i-1] + 1
+            else:
+                asc_arr[i] = asc_arr[i-1] + 1
+                desc_arr[i] = 1
+
+        # print(asc_arr)
+        # print(desc_arr)
+
+        result = []
+        for i in range(k, len(nums) - k):
+            if desc_arr[i-1] < k:
+                continue 
+            if asc_arr[i+k] - asc_arr[i+1] != k - 1:
+                continue
+            result.append(i)
+            
+        return result
+        
+test = Solution()
+input = [1,2,3,1,3,4,1,2]
+k = 2
+result = test.goodIndices(input, k)
+print(result)
