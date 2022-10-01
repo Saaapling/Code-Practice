@@ -46,7 +46,9 @@ class Solution:
                     - Add memoization to remove repetitive checks
             - DP Solution:
                 - Explanation provided in soluton: https://leetcode.com/problems/word-break/solution/
-    """
+            - Trie Solution:
+                - https://leetcode.com/problems/word-break/discuss/870187/Python-trie-solution
+    """ 
 
     def word_dict_tree_traversal_aux(self, s, tree, index, cache):
         if len(s) == 0:
