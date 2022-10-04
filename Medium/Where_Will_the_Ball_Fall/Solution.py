@@ -5,9 +5,33 @@ class Solution:
         Comments: 
             Initial Thoughts: DP
                 - O(m * n)
+            - Post submission comments:
+                - Code could be cleaned, esp the base case
     """
     
-    def findBall(self, grid: list[list[int]]) -> List[int]:
+    def findBall_cleaned(self, grid: list[list[int]]) -> list[int]:
+        m = len(grid)
+        n = len(grid[0])
+       
+        dp = [[-2 for _ in range(n)] for _ in range(m+1)]
+        for j in range(n):
+            dp[m][j] = j
+        
+        def aux(i, j):
+            if dp[i][j] != -2:
+                return dp[i][j]
+            
+            offset = + grid[i][j]
+            if j + offset < n and j + offset >= 0 and grid[i][j] == grid[i][j + offset]:
+                dp[i][j] = aux(i+1, j + offset)
+            else:
+                dp[i][j] = -1
+                    
+            return dp[i][j]
+            
+        return [aux(0, j) for j in range(n)]
+
+    def findBall(self, grid: list[list[int]]) -> list[int]:
         m = len(grid)
         n = len(grid[0])
         
@@ -67,3 +91,8 @@ class Solution:
             
         # print(dp)
         return result
+
+test = Solution()
+grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]]
+result = test.findBall_cleaned(grid)
+print(result)
